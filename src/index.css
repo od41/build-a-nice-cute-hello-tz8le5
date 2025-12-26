@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Hello Kitty Theme Colors */
+  --hk-pink: #FF69B4;
+  --hk-hot-pink: #FF1493;
+  --hk-light-pink: #FFB6C1;
+  --hk-pale-pink: #FFF0F5;
+  --hk-yellow: #FFD700;
+  --hk-red: #DC143C;
+  --hk-white: #FFFFFF;
+  --hk-bow-red: #FF0000;
+  
+  /* Gradients */
+  --hk-gradient-primary: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #FF1493 100%);
+  --hk-gradient-secondary: linear-gradient(135deg, #FFF0F5 0%, #FFB6C1 100%);
+  --hk-gradient-accent: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  
+  /* Shadows */
+  --hk-shadow-sm: 0 2px 8px rgba(255, 105, 180, 0.15);
+  --hk-shadow-md: 0 4px 16px rgba(255, 105, 180, 0.25);
+  --hk-shadow-lg: 0 8px 32px rgba(255, 105, 180, 0.35);
+  --hk-shadow-glow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--hk-pale-pink);
+  color: #333;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fredoka One', cursive;
+  color: var(--hk-hot-pink);
+}
+
+.hk-title {
+  font-family: 'Fredoka One', cursive;
+  background: var(--hk-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hk-btn-primary {
+  background: var(--hk-gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--hk-shadow-md);
+}
+
+.hk-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hk-shadow-lg);
+}
+
+.hk-btn-secondary {
+  background: white;
+  color: var(--hk-hot-pink);
+  border: 2px solid var(--hk-pink);
+  border-radius: 30px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hk-btn-secondary:hover {
+  background: var(--hk-pale-pink);
+  border-color: var(--hk-hot-pink);
+  transform: translateY(-2px);
+}
+
+.hk-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--hk-shadow-md);
+  transition: all 0.3s ease;
+}
+
+.hk-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hk-shadow-lg);
+}
+
+.hk-bow {
+  position: relative;
+  display: inline-block;
+}
+
+.hk-bow::before,
+.hk-bow::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--hk-bow-red);
+  border-radius: 50%;
+}
+
+.hk-bow::before {
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hk-bow::after {
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hk-pale-pink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hk-gradient-primary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hk-hot-pink);
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: var(--hk-shadow-md); }
+  50% { box-shadow: var(--hk-shadow-glow); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
