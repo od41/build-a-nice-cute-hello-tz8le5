@@ -4,9 +4,14 @@ import { Heart, Sparkles, Star } from 'lucide-react'
 import './App.css'
 import './styles/animations.css'
 import { Button } from '@/components/ui/button'
+import { HelloKittyCharacter } from '@/components/HelloKittyCharacter'
 
 function App() {
   const [showMessage, setShowMessage] = useState(false)
+
+  const handleKittyClick = () => {
+    setShowMessage(true)
+  }
 
   return (
     <div className="min-h-screen" style={{
@@ -79,7 +84,7 @@ function App() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,10 +116,20 @@ function App() {
             Welcome to the Cutest Fan Site! ✨
           </motion.h2>
           
+          {/* Hello Kitty Character Component */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="my-12"
+          >
+            <HelloKittyCharacter onKittyClick={handleKittyClick} />
+          </motion.div>
+          
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
             className="text-lg md:text-xl mb-12 max-w-2xl mx-auto"
             style={{ color: '#666' }}
           >
@@ -125,7 +140,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
+            transition={{ delay: 0.9, duration: 0.5 }}
             className="flex gap-4 justify-center flex-wrap"
           >
             <Button
